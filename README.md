@@ -1,42 +1,85 @@
-# Azure Virtual Network with Additional Subnet
+Azure Virtual Network with an Additional Subnet (Portal)
+📖 Overview
 
-**Goal:** Create a virtual network with a default subnet and add an additional subnet for future workloads.  
-**Skills Demonstrated:** Azure Networking, Subnetting, Resource Group Management.
+I built an Azure Virtual Network (VNet) with a default subnet and added an additional subnet to prepare for future workloads. This exercise reinforced address planning, subnetting, and portal navigation.
 
----
+Skills demonstrated: Azure Networking · VNet/Subnets · CIDR planning · Resource Groups
 
-## Steps (Milestones)
+🔧 Settings I Used
+Item	Value
+Resource Group	555 bcee5c6e-create-a-virtul-network
+Region	East US
+VNet Name	vnet-demo
+VNet Address Space	10.0.0.0/16
+Subnet #1 (default)	10.0.0.0/24
+Subnet #2 (Serversubnet)	10.0.1.0/24
 
-1. **Created Resource Group**
-   - Name: 555 bcee5c6e-create-a-virtul-network
-   - Region: East US
+You can substitute your own names/regions—these reflect what I actually used.
 
-2. **Created Virtual Network**
-   - Name: `vnet-demo`
-   - Address space: `10.0.0.0/16`
-   - Subnet: `default (10.0.0.0/24)`
+🗺️ Quick Topology
+vnet-demo (10.0.0.0/16)
+├─ default      (10.0.0.0/24)
+└─ Serversubnet (10.0.1.0/24)
 
-3. **Added Additional Subnet**
-   - Name: `Serversubnet`
-   - Address space: `10.0.1.0/24`
-   - Purpose: None (general workload subnet)
+🚀 Step-by-Step (Azure Portal)
+1) Create the Resource Group
 
-4. **Verified Configuration**
-   - Checked VNet and subnet details in Azure portal
-   - Confirmed correct IP ranges and configuration
+Azure Portal → Resource groups → Create
 
----
+Subscription: (your sub)
 
-## Lessons Learned
+Resource group: 555 bcee5c6e-create-a-virtul-network
 
-- Learned how to create a VNet and understand address space vs. subnet range.
-- Practiced adding an additional subnet for network segmentation.
-- Gained confidence using Azure Portal for network configuration.
+Region: East US
 
----
+Review + create → Create
 
-## Next Steps
+2) Create the Virtual Network
 
-- Deploy a VM into the new subnet.
-- Add an NSG to secure access.
-- Repeat this setup using Azure CLI or Terraform for automation.
+Create a resource → Networking → Virtual network
+
+Resource group: 555 bcee5c6e-create-a-virtul-network
+
+Name: vnet-demo · Region: East US
+
+IP addresses tab → IPv4 address space: 10.0.0.0/16
+
+Subnets → keep default at 10.0.0.0/24
+
+Review + create → Create
+
+3) Add the Additional Subnet
+
+Open vnet-demo → Subnets → + Subnet
+
+Subnet name: Serversubnet
+
+Subnet address range: 10.0.1.0/24
+
+Save
+
+4) Verify the Configuration
+
+In vnet-demo:
+
+Address space shows 10.0.0.0/16
+
+Subnets shows default (10.0.0.0/24) and Serversubnet (10.0.1.0/24)
+
+(Optional) Deploy a test VM into Serversubnet to confirm IP assignment.
+
+✅ Results
+
+VNet created with a /16 address space for future growth.
+
+One default /24 subnet plus a second Serversubnet /24 for workload separation.
+
+Portal workflow validated end-to-end (RG → VNet → Subnets → Verify).
+
+🧠 Lessons Learned
+
+Difference between VNet address space and subnet ranges (aggregate vs. carved segments).
+
+Why adding a second subnet helps with segmentation (e.g., app tiers, future NSGs/UDRs).
+
+Faster, cleaner portal navigation for Azure networking tasks.
