@@ -22,12 +22,13 @@ vnet-demo (10.0.0.0/16)
 ├─ default      (10.0.0.0/24)
 └─ Serversubnet (10.0.1.0/24)
 
+
 🚀 Step-by-Step (Azure Portal)
 1) Create the Resource Group
 
 Azure Portal → Resource groups → Create
 
-Subscription: (your sub)
+Subscription: My Subscription
 
 Resource group: 555 bcee5c6e-create-a-virtul-network
 
