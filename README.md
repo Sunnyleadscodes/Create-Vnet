@@ -1,20 +1,21 @@
 Azure Virtual Network with an Additional Subnet (Portal)
-📖 Overview
 
+📖 Overview
 I built an Azure Virtual Network (VNet) with a default subnet and added an additional subnet to prepare for future workloads. This exercise reinforced address planning, subnetting, and portal navigation.
 
 Skills demonstrated: Azure Networking · VNet/Subnets · CIDR planning · Resource Groups
 
 🔧 Settings I Used
-Item	Value
-Resource Group	555 bcee5c6e-create-a-virtul-network
-Region	East US
-VNet Name	vnet-demo
-VNet Address Space	10.0.0.0/16
-Subnet #1 (default)	10.0.0.0/24
-Subnet #2 (Serversubnet)	10.0.1.0/24
 
-You can substitute your own names/regions—these reflect what I actually used.
+| Item                     | Value                                  |
+| ------------------------ | -------------------------------------- |
+| Resource Group           | `555 bcee5c6e-create-a-virtul-network` |
+| Region                   | East US                                |
+| VNet Name                | `vnet-demo`                            |
+| VNet Address Space       | `10.0.0.0/16`                          |
+| Subnet #1 (default)      | `10.0.0.0/24`                          |
+| Subnet #2 (Serversubnet) | `10.0.1.0/24`                          |
+
 
 🗺️ Quick Topology
 vnet-demo (10.0.0.0/16)
